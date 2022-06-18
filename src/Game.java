@@ -1,11 +1,11 @@
+import java.io.InputStream;
 import java.util.Scanner;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.lang.Math;
 public class Game {
     public static void main (String [] args){
         Movies filme = new Movies();
-        File file = new File ("C:\\Users\\TUF Gaming\\IdeaProjects\\test\\src\\movies.txt");
+        InputStream file  = Game.class.getClassLoader().getResourceAsStream("movies.txt");
+        //File file = new File ("C:\\Users\\TUF Gaming\\IdeaProjects\\test\\src\\movies.txt");
         try{
             Scanner fileScanner = new Scanner (file);
             while (fileScanner.hasNextLine()){
@@ -78,7 +78,7 @@ public class Game {
                 System.out.println ("You win!" + '\n' + "You have guessed " + Film.name + " correctly.");
             }
         }
-        catch (FileNotFoundException ex)
+        catch (Exception ex)
         {
             System.out.println("An error occurred.");
         }
